@@ -15,7 +15,7 @@ tokenizer_name = "PY007/TinyLlama-1.1B-Chat-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
 
 # Load the model directly without quantization settings
-model_path = "C:/Users/IIITU/Desktop/tinyllama-strisakhi"
+model_path = "PY007/TinyLlama-1.1B-Chat-v0.1"
 
 # Load the model without any quantization configuration
 model = AutoModelForCausalLM.from_pretrained(model_path, revision='main', use_safetensors=False)
