@@ -20,9 +20,11 @@ app = FastAPI()
 
 # Load the model and tokenizer
 tokenizer_name = "PY007/TinyLlama-1.1B-Chat-v0.1"
-model_path = "PY007/TinyLlama-1.1B-Chat-v0.1"
-tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, local_files_only=True)
-model = AutoModelForCausalLM.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0")
+tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+tokenizer.save_pretrained("./tokenizer")
+
+model = AutoModelForCausalLM.from_pretrained(tokenizer_name)
+model.save_pretrained("./model")
 
 def generate_data(query, model, tokenizer):
     inputs = tokenizer(query, return_tensors="pt")
